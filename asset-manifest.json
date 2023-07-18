@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/EnDeCryption/static/css/main.0069bebb.css",
+    "main.js": "/EnDeCryption/static/js/main.80cccb85.js",
+    "index.html": "/EnDeCryption/index.html",
+    "main.0069bebb.css.map": "/EnDeCryption/static/css/main.0069bebb.css.map",
+    "main.80cccb85.js.map": "/EnDeCryption/static/js/main.80cccb85.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0069bebb.css",
+    "static/js/main.80cccb85.js"
+  ]
+}
