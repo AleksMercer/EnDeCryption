@@ -1,0 +1,56 @@
+
+header {
+  .info-btn {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+
+  h1 {
+    font-family: 'Libre Barcode 39 Text';
+    font-size: 1000%;
+    text-align: center;
+    color: #A00;
+    //color: #0A0;
+  }
+}
+
+main {
+  display: grid;
+  grid-template: 1fr auto / 1fr auto 1fr;
+
+  * {
+    border: 1px solid black;
+    
+  }
+
+  .left-window, .right-window {
+    background-color: rgba(43, 43, 43, 0.205);
+    order: 1;
+  }
+
+  .left-window {
+    order: 1;
+  }
+
+  .right-window {
+    order: 3;
+  }
+
+  .mode-swap {
+    order: 2;
+  }
+  
+  .modes {
+    order: 4;
+  }
+
+  .get-result {
+    grid-column: 3;
+    grid-row: 2; 
+  }
+}
+
+footer {
+  text-align: center;
+}

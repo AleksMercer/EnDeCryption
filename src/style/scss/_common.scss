@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap');
+
+html, body, #root {
+	height: 100%;
+	color: rgb(0, 0, 0);
+}
+
+body {
+  background: url('./media/pattern.png');
+  background-color: rgb(255, 255, 255);
+  background-size: 65px;
+
+  #root {
+    display: grid;
+    grid-template: auto 1fr auto / 1fr;
+  }
+}
