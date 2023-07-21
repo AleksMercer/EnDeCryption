@@ -1,13 +1,15 @@
 import React from 'react'
 
-import Info from './additional/Info'
-
 function Header() {
 
   return (
     <header>
-      <Info />
-      <h1>EnCryption</h1>
+     {/* onClick={() => setInfoWindow(true)} */}
+      <button className='info-btn' >  
+        <img className='info-icon' src={require("./media/info-icon.png")} alt="?" />
+      </button>
+
+      <h1>DeCryption</h1>
     </header>
   )
 }
