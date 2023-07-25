@@ -125,6 +125,12 @@ body #root {
   justify-items: center;
   row-gap: 15%;
 }
+body * > img, body * > button, body h1 {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
 body header .info-btn {
   position: fixed;
   margin: 0.75%;
@@ -133,13 +139,11 @@ body header .info-btn {
 }
 body header .info-btn .info-icon {
   -webkit-transition: all 0.15s ease;
-  -o-transition: all 0.15s ease;
   transition: all 0.15s ease;
   border-radius: 50%;
 }
 body header .info-btn .info-icon:hover {
   -webkit-transition: all 0.15s ease;
-  -o-transition: all 0.15s ease;
   transition: all 0.15s ease;
   background-color: rgba(200, 200, 200, 0.75);
   -webkit-box-shadow: 0px 0px 10px 2px rgb(200, 200, 200);
@@ -188,14 +192,12 @@ main .windows .mode-swap .swap-icon {
   border-radius: 50%;
   -webkit-transition: background-color 0.15s ease, -webkit-box-shadow 0.15s ease, -webkit-transform 0.4s ease;
   transition: background-color 0.15s ease, -webkit-box-shadow 0.15s ease, -webkit-transform 0.4s ease;
-  -o-transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.4s ease;
   transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.4s ease;
   transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.4s ease, -webkit-box-shadow 0.15s ease, -webkit-transform 0.4s ease;
 }
 main .windows .mode-swap .swap-icon:hover {
   -webkit-transition: background-color 0.15s ease, -webkit-box-shadow 0.15s ease, -webkit-transform 0.4s ease;
   transition: background-color 0.15s ease, -webkit-box-shadow 0.15s ease, -webkit-transform 0.4s ease;
-  -o-transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.4s ease;
   transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.4s ease;
   transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.4s ease, -webkit-box-shadow 0.15s ease, -webkit-transform 0.4s ease;
   background-color: rgba(200, 200, 200, 0.75);
@@ -218,15 +220,13 @@ main .result {
   border: 1.5px solid black;
   border-radius: 10% 10% 10% 10%/40% 40% 40% 40%;
   font-size: 125%;
-  -webkit-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
 }
 main .result:hover {
-  -webkit-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-  padding: 0.75% 6%;
+  -webkit-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+  padding: 0.75% 4.5%;
   border: 1px solid rgba(0, 0, 0, 0);
   background-color: #0A0;
   color: white;

@@ -4,8 +4,8 @@ function Footer() {
   
   return (
     <footer>
-      <div className="designed">
-        <span>- Site designed and created by <a href="https://github.com/AleksMercer">Mercer </a>© 2023 -</span>
+      <div className='designed'>
+        <span>- Site designed and created by <a href='https://github.com/AleksMercer'>Mercer </a>© 2023 -</span>
       </div>
     </footer>
   )

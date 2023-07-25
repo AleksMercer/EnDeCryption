@@ -26,6 +26,10 @@ body {
     row-gap: 15%;
   }
 
+  * > img, * > button, h1{
+    user-select: none;
+  }
+
   header {
 
     .info-btn {

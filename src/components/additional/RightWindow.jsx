@@ -2,10 +2,11 @@ import React from 'react'
 
 function RightWindow() {
   return (
+    <>
     <textarea
       className='windows_right'
-      placeholder="DeCryption result"
-      name="content"
+      placeholder='DeCryption result'
+      name='content'
       // ref={textAreaRef}
       // value={content}
       // onChange={ (e) => setContent(e.target.value) }
@@ -13,6 +14,14 @@ function RightWindow() {
       // onFocus={handleFocus}
       disabled
     />
+    {/* <button className='copy_btn'>
+      <img 
+        className='copy-icon' 
+        draggable='false'
+        src={require('../media/copy-icon.png')} 
+        alt='+' />
+    </button> */}
+    </>
   )
 }
 

@@ -6,7 +6,11 @@ function Header() {
     <header>
      {/* onClick={() => setInfoWindow(true)} */}
       <button className='info-btn' >  
-        <img className='info-icon' src={require("./media/info-icon.png")} alt="?" />
+        <img 
+          className='info-icon'
+          draggable='false'
+          src={require('./media/info-icon.png')} 
+          alt='?' />
       </button>
 
       <h1>DeCryption</h1>

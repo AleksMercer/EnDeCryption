@@ -7,8 +7,9 @@ function ModeSwap() {
     <button className='mode-swap'>
        <img 
         className={`swap-icon ${isRotate ? 'rotate' : 'unrotate'}`}
+        draggable='false'
         onMouseUp={() => setIsRotate(!isRotate)} 
-        src={require("../media/swap-icon.png")} alt="—><—" 
+        src={require('../media/swap-icon.png')} alt='—><—' 
        />
     </button>
   )
