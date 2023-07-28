@@ -11,9 +11,13 @@ function Main() {
     <main>
 
       <div className='windows'>
+
         <LeftWindow />
+        
         <ModeSwap />
+
         <RightWindow />
+
       </div>
 
       <Result />

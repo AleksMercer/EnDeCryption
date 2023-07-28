@@ -1,6 +1,6 @@
 {
-  "short_name": "EnDeCryption",
   "name": "EnDeCryption project",
+  "short_name": "EnDeCryption",
   "icons": [
     {
       "src": "./icons/favicon.ico",

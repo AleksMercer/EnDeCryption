@@ -84,3 +84,6 @@ a {
 a:link, a:visited, a:hover {
 	text-decoration: none;
 }
+* > button {
+	-webkit-tap-highlight-color: transparent;
+}

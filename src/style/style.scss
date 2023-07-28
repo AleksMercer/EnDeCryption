@@ -1,7 +1,13 @@
-//Font - Bungee Hairline
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Hairline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap');
 
-//@import "../components/";
+/* - Mixins start - */
+
+@mixin grid_template($template) { 
+  //@include grid_template($template);
+  
+  display: grid;
+  grid-template: $template;
+}
 
 /* - Common settings - */
 
@@ -9,6 +15,6 @@
 
 @import "./scss/common";
 
-@import "./scss/edc-app";
+@import "./scss/theme-color";
 
 /* ------------------- */

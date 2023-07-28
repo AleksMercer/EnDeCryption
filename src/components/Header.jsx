@@ -1,6 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+
+import { selectMode } from '../store'
+
 
 function Header() {
+
+  const modeState = useSelector(selectMode)
 
   return (
     <header>
@@ -13,7 +19,12 @@ function Header() {
           alt='?' />
       </button>
 
-      <h1>DeCryption</h1>
+      { modeState ?
+        <h1 className=''>EnCryption</h1>
+        :
+        <h1 className=''>DeCryption</h1>
+      }
+      
     </header>
   )
 }
