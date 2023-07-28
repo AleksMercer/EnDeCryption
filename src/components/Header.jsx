@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { selectMode } from '../store'
 
 
-function Header() {
+function Header() { /* Here i need to make info field with (modal window) */
 
   const modeState = useSelector(selectMode)
 
@@ -20,9 +20,9 @@ function Header() {
       </button>
 
       { modeState ?
-        <h1 className=''>EnCryption</h1>
+        <h1>EnCryption</h1>
         :
-        <h1 className=''>DeCryption</h1>
+        <h1>DeCryption</h1>
       }
       
     </header>

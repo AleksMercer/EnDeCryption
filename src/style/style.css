@@ -173,8 +173,10 @@ main .windows_left, main .windows_right {
 main .windows_left textarea, main .windows_right textarea {
   height: 100%;
   width: 100%;
-  border-radius: 3% 3% 3% 3%/6% 6% 6% 6%;
   padding: 1%;
+  border-radius: 3% 3% 3% 3%/6% 6% 6% 6%;
+  -webkit-backdrop-filter: blur(0.2vh);
+          backdrop-filter: blur(0.2vh);
   resize: none;
   word-break: break-word;
   white-space: break-spaces;
@@ -236,69 +238,75 @@ footer {
   font-size: 1.5vh;
 }
 
-/*---------EnCryption Theme------------*/
-body.encryption > #root {
+/*---------EnCryption-Theme------------*/
+body.encryption #root {
   background-color: rgb(49, 49, 49);
 }
-body.encryption > #root * > img {
+body.encryption #root * > img {
   -webkit-filter: invert(100%);
           filter: invert(100%);
 }
-body.encryption > #root * > img.info-icon:hover, body.encryption > #root * > img.swap-icon:hover {
+body.encryption #root * > img.info-icon:hover, body.encryption #root * > img.swap-icon:hover {
   -webkit-filter: invert(0%);
           filter: invert(0%);
   background-color: #A00;
   -webkit-box-shadow: 0px 0px 0.3vh 0.3vh #A00;
           box-shadow: 0px 0px 0.3vh 0.3vh #A00;
 }
-body.encryption > #root header h1 {
+body.encryption #root header h1 {
   color: #A00;
 }
-body.encryption > #root main * > textarea {
+body.encryption #root main textarea {
   color: rgb(255, 255, 255);
-  background-color: rgba(43, 43, 43, 0.2);
+  background-color: rgba(170, 0, 0, 0.05);
   border: 0.25vh solid #A00;
 }
-body.encryption > #root main ::-webkit-scrollbar-thumb {
+body.encryption #root main ::-webkit-scrollbar-thumb {
   background-color: #A00;
 }
-body.encryption > #root main .result {
+body.encryption #root main .result {
   border: 0.25vh solid #A00;
   color: white;
 }
-body.encryption > #root main .result:hover {
+body.encryption #root main .result:hover {
   background-color: #A00;
 }
-body.encryption > #root footer {
+body.encryption #root footer {
   color: white;
+}
+body.encryption #root footer div > span > a {
+  color: #0A0;
 }
 
-/*---------DeCryption Theme------------*/
-body.decryption > #root {
+/*---------DeCryption-Theme------------*/
+body.decryption #root {
   background-color: rgb(255, 255, 255);
 }
-body.decryption > #root * > img.info-icon:hover, body.decryption > #root * > img.swap-icon:hover {
+body.decryption #root * > img.info-icon:hover, body.decryption #root * > img.swap-icon:hover {
   -webkit-filter: invert(0%);
           filter: invert(0%);
   background-color: #0A0;
   -webkit-box-shadow: 0px 0px 0.3vh 0.3vh #0A0;
           box-shadow: 0px 0px 0.3vh 0.3vh #0A0;
 }
-body.decryption > #root header h1 {
+body.decryption #root header h1 {
   color: #0A0;
 }
-body.decryption > #root main * > textarea {
-  background-color: rgba(43, 43, 43, 0.2);
+body.decryption #root main textarea {
+  background-color: rgba(0, 170, 0, 0.05);
   border: 0.25vh solid #0A0;
 }
-body.decryption > #root main ::-webkit-scrollbar-thumb {
+body.decryption #root main ::-webkit-scrollbar-thumb {
   background-color: #0A0;
 }
-body.decryption > #root main .result {
+body.decryption #root main .result {
   border: 0.25vh solid #0A0;
 }
-body.decryption > #root main .result:hover {
+body.decryption #root main .result:hover {
   background-color: #0A0;
+}
+body.decryption #root footer > div > span > a {
+  color: #A00;
 }
 
 /* ------------------- */

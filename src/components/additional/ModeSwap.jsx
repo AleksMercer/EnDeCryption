@@ -6,8 +6,8 @@ import { modeSwap } from '../../store'
 
 function ModeSwap() {
 
-  const swapValue = useSelector(state => state.store.mode)
   const dispatch = useDispatch()
+  const swapValue = useSelector(state => state.store.mode)
 
   const [isRotate, setIsRotate] = useState(true)
 

@@ -4,87 +4,96 @@ $green: #0A0;
 $border-red: 0.25vh solid $red;
 $border-green: 0.25vh solid $green;
 
-/*---------EnCryption Theme------------*/
-body.encryption > #root {
+/*---------EnCryption-Theme------------*/
 
-  background-color: rgb(49, 49, 49); // color of pattern
+body.encryption {
+  #root {
+    background-color: rgb(49, 49, 49); // color of pattern
 
-  * > img { //icon color and hover
-    filter: invert(100%);
-  }
-
-  * > img.info-icon:hover, * > img.swap-icon:hover {
-    filter: invert(0%);
-    background-color: $red;
-    box-shadow: 0px 0px 0.3vh 0.3vh $red;
-  }
-
-  header {
-    h1 { color: $red }
-  }
-
-  main {
-
-    * > textarea { 
-      color: rgb(255, 255, 255);
-      background-color: rgba(43, 43, 43, 0.2);
-      border: $border-red;
+    * > img { //icon color and hover
+      filter: invert(100%);
     }
 
-    ::-webkit-scrollbar-thumb {
+    * > img.info-icon:hover, * > img.swap-icon:hover {
+      filter: invert(0%);
       background-color: $red;
+      box-shadow: 0px 0px 0.3vh 0.3vh $red;
     }
 
-    .result {
-      border: $border-red;
-      color: white
+    header {
+      h1 { color: $red }
     }
 
-    .result:hover {
-      background-color: $red;
-    }
-  }
+    main {
 
-  footer {
-    color: white
+      textarea { 
+        color: rgb(255, 255, 255);
+        background-color: rgba(170, 0, 0, 0.05);
+        border: $border-red;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: $red;
+      }
+
+      .result {
+        border: $border-red;
+        color: white
+      }
+
+      .result:hover {
+        background-color: $red;
+      }
+    }
+
+    footer {
+      color: white;
+      div > span > a {
+        color: $green;
+      }
+    }
   }
 }
 
-/*---------DeCryption Theme------------*/
-// .swap-icon:hover {
+/*---------DeCryption-Theme------------*/
 
-// }
-body.decryption > #root {
+body.decryption {
+  #root {
+    background-color: rgb(255, 255, 255); // color of pattern
 
-  background-color: rgb(255, 255, 255); // color of pattern
-
-  * > img.info-icon:hover, * > img.swap-icon:hover {
-    filter: invert(0%);
-    background-color: $green;
-    box-shadow: 0px 0px 0.3vh 0.3vh $green;
-  }
-
-  header {
-    h1 { color: $green }
-  }
-
-  main {
-
-    * > textarea { 
-      background-color: rgba(43, 43, 43, 0.2);
-      border: $border-green;
-    }
-
-    ::-webkit-scrollbar-thumb {
+    * > img.info-icon:hover, * > img.swap-icon:hover {
+      filter: invert(0%);
       background-color: $green;
+      box-shadow: 0px 0px 0.3vh 0.3vh $green;
     }
 
-    .result {
-      border: $border-green;
+    header {
+      h1 { color: $green }
     }
 
-    .result:hover {
-      background-color: $green;
+    main {
+
+      textarea { 
+        background-color: rgba(0, 170, 0, 0.05);
+        border: $border-green;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: $green;
+      }
+
+      .result {
+        border: $border-green;
+      }
+
+      .result:hover {
+        background-color: $green;
+      }
     }
+
+    footer > div > span > a {
+      color: $red;
+    }
+    
   }
 }
