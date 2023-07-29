@@ -1,46 +1,31 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { changeValue } from '../../store'
+import CopyButton from './CopyButton'
+
+import { selectMode, selectContent } from '../../store' // selectors import
+import { changeContent } from '../../store' // reducers import
 
 function LeftWindow() {
 
   const dispatch = useDispatch()
-  const content = useSelector(state => state.store.textAreaValue)
-  const swapValue = useSelector(state => state.store.mode)
-
-  //#region — Change placeholder in textarea
-  
-  let placeholder = ''
-
-  if (swapValue) {
-    placeholder = 'Type something for EnCryption'
-  } else {
-    placeholder = 'Type something for DeCryption'
-  }
-
-  //#endregion
+  const modeState = useSelector(selectMode) // boolean
+  const contentState = useSelector(selectContent)
 
   return (
     <div className='windows_left'>
       
       <textarea
-        placeholder={placeholder}
+        placeholder={modeState ? 'Type something for EnCryption' : 'Type something for DeCryption'}
         name='content'
-        value={content}
-        onChange={ (e) => dispatch(changeValue(e.target.value)) }
+        value={contentState}
+        onChange={ (e) => dispatch(changeContent(e.target.value)) }
         maxLength={2000}
         autoFocus
       />
 
-      <button className='copy_btn'>
-        <img 
-          className='copy-icon' 
-          draggable='false'
-          src={require('../media/copy-icon.png')} 
-          alt='+' />
-      </button>
-
+      <CopyButton />
+      
     </div>
   )
 }

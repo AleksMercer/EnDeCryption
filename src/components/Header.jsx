@@ -6,7 +6,7 @@ import { selectMode } from '../store'
 
 function Header() { /* Here i need to make info field with (modal window) */
 
-  const modeState = useSelector(selectMode)
+  const modeState = useSelector(selectMode) //boolean
 
   return (
     <header>
@@ -19,11 +19,9 @@ function Header() { /* Here i need to make info field with (modal window) */
           alt='?' />
       </button>
 
-      { modeState ?
-        <h1>EnCryption</h1>
-        :
-        <h1>DeCryption</h1>
-      }
+      <h1>
+        { modeState ? 'EnCryption' : 'DeCryption' }
+      </h1>
       
     </header>
   )

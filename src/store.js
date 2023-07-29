@@ -6,12 +6,12 @@ export const globalStateStore = createSlice({
   
   initialState: {
     mode: true,
-    textAreaValue: '',
+    contentValue: '',
   },
   
   reducers: {
     modeSwap: (state) => { state.mode = !state.mode },
-    changeValue: (state, action) => { state.textAreaValue = action.payload }
+    changeContent: (state, action) => { state.contentValue = action.payload }
   },
 })
 
@@ -23,6 +23,15 @@ export default configureStore({
 })
 
 
-export const selectMode = (state) => state.store.mode
+/* selectMode - boolean value for mode choosing. const modeState = useSelector(selectMode) */
+const selectMode = (state) => state.store.mode
+/* selectContent - content from leftWindow. const contentState = useSelector(selectContent) */
+const selectContent = (state) => state.store.contentValue
 
-export const { modeSwap, changeValue } = globalStateStore.actions
+/* Export all selectors */
+export { selectMode, selectContent }
+//import { selectMode, selectContent } from '../../store' // selectors import
+
+/* export reducers-func */
+export const { modeSwap, changeContent } = globalStateStore.actions
+// import { modeSwap, changeContent } from '../../store' // reducers import
