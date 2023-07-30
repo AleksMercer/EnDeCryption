@@ -1,15 +1,15 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import CopyButton from './CopyButton'
 
-import { selectMode, selectContent } from '../../store' // selectors import
+import { selectMode, selectContent, selectEncrypted } from '../../store' // selectors import
 
 function RightWindow() {
 
-  //const dispatch = useDispatch()
   const modeState = useSelector(selectMode)
   const contentState = useSelector(selectContent)
+  const encryptedState = useSelector(selectEncrypted)
 
   return (
     <div className='windows_right'>
@@ -17,11 +17,11 @@ function RightWindow() {
       <textarea
         placeholder={modeState ? 'EnCryption result' : 'DeCryption result'}
         name='content'
-        value={btoa(contentState)}
+        value={modeState ? encryptedState : contentState }
         disabled
       />
 
-      <CopyButton />
+      <CopyButton window='right' />
       
     </div>
   )
