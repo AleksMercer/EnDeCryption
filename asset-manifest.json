@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/EnDeCryption/static/css/main.a210390e.css",
-    "main.js": "/EnDeCryption/static/js/main.fe6971bc.js",
+    "main.css": "/EnDeCryption/static/css/main.5f3b7c33.css",
+    "main.js": "/EnDeCryption/static/js/main.8cf18f56.js",
     "index.html": "/EnDeCryption/index.html",
-    "main.a210390e.css.map": "/EnDeCryption/static/css/main.a210390e.css.map",
-    "main.fe6971bc.js.map": "/EnDeCryption/static/js/main.fe6971bc.js.map"
+    "main.5f3b7c33.css.map": "/EnDeCryption/static/css/main.5f3b7c33.css.map",
+    "main.8cf18f56.js.map": "/EnDeCryption/static/js/main.8cf18f56.js.map"
   },
   "entrypoints": [
-    "static/css/main.a210390e.css",
-    "static/js/main.fe6971bc.js"
+    "static/css/main.5f3b7c33.css",
+    "static/js/main.8cf18f56.js"
   ]
 }
