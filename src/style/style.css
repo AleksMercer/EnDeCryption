@@ -233,6 +233,47 @@ header .info-btn .info-icon {
   transition: all 0.2s ease;
   border-radius: 50%;
 }
+header .copy-tip {
+  position: fixed;
+  top: -5%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 1.8vh;
+  padding: 1vh 3.5vh;
+  border-radius: 10%/50%;
+}
+header .copy-tip.active {
+  -webkit-animation: copyTip 1s ease-in;
+          animation: copyTip 1s ease-in;
+}
+@-webkit-keyframes copyTip {
+  0%, 100% {
+    -webkit-filter: opacity(0%);
+            filter: opacity(0%);
+    top: 21%;
+  }
+  10%, 80% {
+    -webkit-filter: opacity(100%);
+            filter: opacity(100%);
+  }
+}
+@keyframes copyTip {
+  0%, 100% {
+    -webkit-filter: opacity(0%);
+            filter: opacity(0%);
+    top: 21%;
+  }
+  10%, 80% {
+    -webkit-filter: opacity(100%);
+            filter: opacity(100%);
+  }
+}
 
 main {
   display: grid;
@@ -270,12 +311,12 @@ main .windows_left ::-webkit-scrollbar-track, main .windows_right ::-webkit-scro
   margin: 35px 0 35px 0;
   background-color: rgba(0, 0, 0, 0);
 }
-main .windows_left .copy_btn, main .windows_right .copy_btn {
+main .windows_left .copy-btn, main .windows_right .copy-btn {
   position: absolute;
   top: 1.5%;
   right: 1.5%;
 }
-main .windows_left .copy_btn img, main .windows_right .copy_btn img {
+main .windows_left .copy-btn img, main .windows_right .copy-btn img {
   height: 3.5vh;
 }
 main .windows .mode-swap {
@@ -336,6 +377,10 @@ body.encryption #root * > img.info-icon:hover, body.encryption #root * > img.swa
 body.encryption #root header h1 {
   color: #A00;
 }
+body.encryption #root header .copy-tip {
+  color: black;
+  background-color: rgb(255, 255, 255);
+}
 body.encryption #root main textarea {
   color: rgb(255, 255, 255);
   background-color: rgba(170, 0, 0, 0.05);
@@ -371,6 +416,10 @@ body.decryption #root * > img.info-icon:hover, body.decryption #root * > img.swa
 }
 body.decryption #root header h1 {
   color: #0A0;
+}
+body.decryption #root header .copy-tip {
+  color: white;
+  background-color: rgb(49, 49, 49);
 }
 body.decryption #root main textarea {
   color: black;

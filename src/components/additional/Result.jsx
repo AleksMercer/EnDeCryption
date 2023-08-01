@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { selectMode, selectContent, selectEncrypted } from '../../store' // selectors import
-import { modeSwap, changeContent, encryptionContent, decryptionContent } from '../../store' // reducers import
+import { changeContent, encryptionContent } from '../../store' // reducers import
 
 function Result() {
 
@@ -16,7 +16,7 @@ function Result() {
   }
 
   const decryption = () => {
-    dispatch( decryptionContent( atob(encryptedState) ) )
+    dispatch( changeContent( atob(encryptedState) ) )
   }
   
 

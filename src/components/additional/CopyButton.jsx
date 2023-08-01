@@ -1,13 +1,18 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { selectMode, selectContent, selectEncrypted } from '../../store' // selectors import
+import { selectMode, selectCopy, selectContent, selectEncrypted } from '../../store' // selectors import
+import { copySwap } from '../../store' // reducers import
+
 
 function CopyButton(props) {
 
   const window = props.window //left or right window
 
-  const modeState = useSelector(selectMode) // boolean
+  const dispatch = useDispatch()
+
+  const modeState = useSelector(selectMode)
+  const copyState = useSelector(selectCopy)
   const contentState = useSelector(selectContent)
   const encryptedState = useSelector(selectEncrypted)
 
@@ -23,14 +28,23 @@ function CopyButton(props) {
     }
   }
 
+  const copyTip = () => {
+    if (copyState) return
+    dispatch(copySwap())
+    setTimeout(() => dispatch(copySwap()), 1000);
+  }
+
   return (
-    <button className='copy_btn'>
+    <button className='copy-btn'>
       <img 
         className='copy-icon' 
         draggable='false'
         src={require('../media/copy-icon.png')} 
         alt='+' 
-        onClick={contentCopy}
+        onClick={ () => {
+          contentCopy()
+          copyTip()
+        }}
         />
     </button>
   )

@@ -22,6 +22,11 @@ body.encryption {
 
     header {
       h1 { color: $red }
+
+      .copy-tip {
+        color: black;
+        background-color: rgb(255, 255, 255); // color of pattern
+      }
     }
 
     main {
@@ -69,6 +74,11 @@ body.decryption {
 
     header {
       h1 { color: $green }
+      
+      .copy-tip {
+        color: white;
+        background-color: rgb(49, 49, 49); // color of pattern
+      }
     }
 
     main {

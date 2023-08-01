@@ -16,9 +16,11 @@ function ModeSwap() {
   if (modeState) {
     body.add('encryption')
     body.remove('decryption')
+    document.title = 'EnCryption'
   } else {
     body.remove('encryption')
     body.add('decryption')
+    document.title = 'DeCryption'
   }
 
   //#endregion
