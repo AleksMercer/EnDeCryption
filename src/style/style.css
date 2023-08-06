@@ -290,6 +290,8 @@ main .windows {
 }
 main .windows_left, main .windows_right {
   position: relative;
+  /* button into textarea */
+  /*----------------------*/
 }
 main .windows_left textarea, main .windows_right textarea {
   height: 100%;
@@ -302,6 +304,7 @@ main .windows_left textarea, main .windows_right textarea {
   word-break: break-word;
   white-space: break-spaces;
   line-height: 125%;
+  font-size: 2vh;
 }
 main .windows_left ::-webkit-scrollbar, main .windows_right ::-webkit-scrollbar {
   width: 1vh;
@@ -311,13 +314,27 @@ main .windows_left ::-webkit-scrollbar-track, main .windows_right ::-webkit-scro
   margin: 35px 0 35px 0;
   background-color: rgba(0, 0, 0, 0);
 }
-main .windows_left .copy-btn, main .windows_right .copy-btn {
+main .windows_left .symbol-counter, main .windows_right .symbol-counter {
   position: absolute;
-  top: 1.5%;
+  bottom: 1.5%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 2.2vh;
+}
+main .windows_left .copy-btn, main .windows_left .clean-btn, main .windows_right .copy-btn, main .windows_right .clean-btn {
+  position: absolute;
   right: 1.5%;
 }
-main .windows_left .copy-btn img, main .windows_right .copy-btn img {
+main .windows_left .copy-btn img, main .windows_left .clean-btn img, main .windows_right .copy-btn img, main .windows_right .clean-btn img {
   height: 3.5vh;
+}
+main .windows_left .copy-btn, main .windows_right .copy-btn {
+  top: 1.5%;
+}
+main .windows_left .clean-btn, main .windows_right .clean-btn {
+  top: 15%;
 }
 main .windows .mode-swap {
   -ms-flex-item-align: center;
@@ -389,6 +406,9 @@ body.encryption #root main textarea {
 body.encryption #root main ::-webkit-scrollbar-thumb {
   background-color: #A00;
 }
+body.encryption #root main .symbol-counter {
+  color: white;
+}
 body.encryption #root main .result {
   border: 0.25vh solid #A00;
   color: white;
@@ -428,6 +448,9 @@ body.decryption #root main textarea {
 }
 body.decryption #root main ::-webkit-scrollbar-thumb {
   background-color: #0A0;
+}
+body.decryption #root main .symbol-counter {
+  color: black;
 }
 body.decryption #root main .result {
   border: 0.25vh solid #0A0;

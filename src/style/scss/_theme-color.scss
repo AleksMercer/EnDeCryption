@@ -41,6 +41,10 @@ body.encryption {
         background-color: $red;
       }
 
+      .symbol-counter {
+        color: white;
+      }
+
       .result {
         border: $border-red;
         color: white
@@ -91,6 +95,10 @@ body.decryption {
 
       ::-webkit-scrollbar-thumb {
         background-color: $green;
+      }
+      
+      .symbol-counter {
+        color: black;
       }
 
       .result {

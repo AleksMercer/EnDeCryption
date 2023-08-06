@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import CopyButton from './CopyButton'
+import CleanButton from './CleanButton'
 
 import { selectMode, selectContent, selectEncrypted } from '../../store' // selectors import
 import { changeContent, encryptionContent } from '../../store' // reducers import
@@ -20,7 +21,7 @@ function LeftWindow() {
         placeholder={modeState ? 'Type something for EnCryption' : 'Type something for DeCryption'}
         name='content'
         value={modeState ? contentState : encryptedState}
-        maxLength={2000}
+        maxLength={ modeState ? 300 : 1000 }
         onChange={ modeState ? 
           (e) => dispatch(changeContent(e.target.value)) 
           : 
@@ -29,7 +30,11 @@ function LeftWindow() {
         autoFocus
       />
 
+      { modeState && <span className='symbol-counter'>{contentState.length} / 300</span> }
+
       <CopyButton window='left' />
+
+      <CleanButton window='left' />
       
     </div>
   )

@@ -29,6 +29,8 @@ function CopyButton(props) {
   }
 
   const copyTip = () => {
+    if ( (!contentState.length && window === 'left') || (!encryptedState.length && window === 'right') ) return
+
     if (copyState) return
     dispatch(copySwap())
     setTimeout(() => dispatch(copySwap()), 1000);

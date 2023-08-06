@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 import CopyButton from './CopyButton'
+import CleanButton from './CleanButton'
 
 import { selectMode, selectContent, selectEncrypted } from '../../store' // selectors import
 
@@ -22,6 +23,8 @@ function RightWindow() {
       />
 
       <CopyButton window='right' />
+      
+      <CleanButton window='right' />
       
     </div>
   )
