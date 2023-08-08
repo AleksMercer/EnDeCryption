@@ -13,7 +13,7 @@ function Header() { /* Here i need to make info field with (modal window) */
     <header>
 
       <h1>
-        { modeState ? 'EnCryption' : 'DeCryption' }
+        { modeState ? <span>EnC<span className='full-name'>ryption</span></span> : <span>DeC<span className='full-name'>ryption</span></span> }
       </h1>
 
       <button className='info-btn' >  

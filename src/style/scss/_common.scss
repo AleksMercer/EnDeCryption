@@ -1,3 +1,5 @@
+$border-radius: 1.5vh;
+
 /* - common settings - */
 
 html, body, #root {
@@ -13,6 +15,7 @@ body {
 
   * > img.info-icon, * > img.swap-icon { //icon height
     height: 5vh;
+    border-radius: 50%;
   }
 
   #root {
@@ -95,7 +98,7 @@ body {
 header {
       
   h1 {
-    margin: 1.5% 0% 0% 0%;
+    margin: 3vh 0 0 0;
     font-family: 'Libre Barcode 39 Text';
     font-size: 15vh;
   }
@@ -108,9 +111,10 @@ header {
 
     .info-icon {
       transition: all 0.2s ease;
-      border-radius: 50%;
     }
   }
+
+  /* copy-tip "copied" */
 
   .copy-tip {
     position: fixed;
@@ -121,7 +125,9 @@ header {
 
     font-size: 1.8vh;
     padding: 1vh 3.5vh;
-    border-radius: 10% / 50%;
+    border-radius: $border-radius;
+
+    z-index: 99;
   }
 
   .copy-tip.active {
@@ -138,6 +144,7 @@ header {
       filter: opacity(100%);
     }
   }
+  /*-------------------*/
 }
 
 main {
@@ -155,9 +162,9 @@ main {
       textarea {
         height: 100%;
         width: 100%;
-        padding: 2% 4vh 2% 2vh;
+        padding: 2vh 4vh 0 2vh;
 
-        border-radius: 3% 3% 3% 3% / 6% 6% 6% 6%;
+        border-radius: $border-radius;
         backdrop-filter: blur(0.2vh);
   
         resize: none;
@@ -169,7 +176,7 @@ main {
       } 
 
       ::-webkit-scrollbar {
-        width: 1vh;
+        width: 0.5vh;
         background-color: rgba(0, 0, 0, 0);
       }
       
@@ -184,10 +191,14 @@ main {
         left: 50%;
         transform: translateX(-50%);
 
+        backdrop-filter: blur(1vh);
+        color: white;
+        
         font-size: 2.2vh;
       }
       
       /* button into textarea */
+
       .copy-btn, .clean-btn {
         position: absolute;
         right: 1.5%;
@@ -212,7 +223,6 @@ main {
       transform: rotate(90deg);
   
       .swap-icon {
-        border-radius: 50%;
         transition: all 0.3s ease;
       }
       
@@ -230,7 +240,7 @@ main {
     justify-self: center;
     padding: 0.75% 3%;
 
-    border-radius: 10% 10% 10% 10% / 40% 40% 40% 40%;
+    border-radius: $border-radius;
     font-size: 2.2vh;
 
     transition: all 0.15s ease-out;

@@ -41,10 +41,6 @@ body.encryption {
         background-color: $red;
       }
 
-      .symbol-counter {
-        color: white;
-      }
-
       .result {
         border: $border-red;
         color: white
@@ -96,10 +92,6 @@ body.decryption {
       ::-webkit-scrollbar-thumb {
         background-color: $green;
       }
-      
-      .symbol-counter {
-        color: black;
-      }
 
       .result {
         border: $border-green;
@@ -115,4 +107,48 @@ body.decryption {
     }
     
   }
+}
+
+/*---------Mobile-breakpoint------------*/
+
+@media (max-width: 700px) { 
+body.encryption {
+  #root {
+    
+    * > img.info-icon:hover, * > img.swap-icon:hover {
+      filter: invert(100%);
+      background-color: rgba(255, 255, 255, 0);
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+
+    main {
+      .result:hover {
+        background-color: rgba(255, 255, 255, 0);
+      }
+      .result:active {
+        background-color: $red;
+      }
+    }
+  }
+}
+
+body.decryption {
+  #root {
+    
+    * > img.info-icon:hover, * > img.swap-icon:hover {
+      filter: invert(0%);
+      background-color: rgba(255, 255, 255, 0);
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+
+    main {
+      .result:hover {
+        background-color: rgba(255, 255, 255, 0);
+      }
+      .result:active {
+        background-color: $green;
+      }
+    }
+  }
+}    
 }
