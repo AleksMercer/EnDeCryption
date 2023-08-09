@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { selectMode, selectContent, selectEncrypted } from '../../store' // selectors import
-import { changeContent, encryptionContent } from '../../store' // reducers import
+import { selectMode, selectContent, selectEncrypted } from '../../../store' // selectors import
+import { changeContent, encryptionContent } from '../../../store' // reducers import
 
 function Result() {
 
@@ -19,7 +19,6 @@ function Result() {
     dispatch( changeContent( atob(encryptedState) ) )
   }
   
-
   return (
     <button 
       className='result'

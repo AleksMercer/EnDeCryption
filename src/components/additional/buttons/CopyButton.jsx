@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { selectMode, selectCopy, selectContent, selectEncrypted } from '../../store' // selectors import
-import { copySwap } from '../../store' // reducers import
+import { selectMode, selectCopy, selectContent, selectEncrypted } from '../../../store' // selectors import
+import { copySwap } from '../../../store' // reducers import
 
 
 function CopyButton(props) {
@@ -41,7 +41,7 @@ function CopyButton(props) {
       <img 
         className='copy-icon' 
         draggable='false'
-        src={require('../media/copy-icon.png')} 
+        src={require('../../media/copy-icon.png')} 
         alt='+' 
         onClick={ () => {
           contentCopy()

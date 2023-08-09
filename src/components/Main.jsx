@@ -1,9 +1,9 @@
 import React from 'react'
 
-import ModeSwap from './additional/ModeSwap'
+import ModeSwap from './additional/buttons/ModeSwap'
+import Result from './additional/buttons/Result'
 import LeftWindow from './additional/LeftWindow'
 import RightWindow from './additional/RightWindow'
-import Result from './additional/Result'
 
 function Main() {
   

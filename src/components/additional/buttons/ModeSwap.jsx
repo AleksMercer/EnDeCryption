@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { selectMode } from '../../store' // selectors import
-import { modeSwap } from '../../store' // reducers import
+import { selectMode } from '../../../store' // selectors import
+import { modeSwap } from '../../../store' // reducers import
 
 function ModeSwap() {
 
@@ -29,7 +29,7 @@ function ModeSwap() {
     <button className='mode-swap'>
        <img 
         className={`swap-icon ${modeState ? 'rotate' : 'unrotate'}`}
-        src={require('../media/swap-icon.png')} alt='—><—' 
+        src={require('../../media/swap-icon.png')} alt='—><—' 
         onClick={() => dispatch(modeSwap())}
         draggable='false'
        />

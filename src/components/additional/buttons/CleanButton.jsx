@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { selectMode } from '../../store' // selectors import
-import { changeContent, encryptionContent } from '../../store' // reducers import
+import { selectMode } from '../../../store' // selectors import
+import { changeContent, encryptionContent } from '../../../store' // reducers import
 
 
 function CleanButton(props) {
@@ -30,7 +30,7 @@ function CleanButton(props) {
       <img 
         className='clean-icon' 
         draggable='false'
-        src={require('../media/clean-icon.png')} 
+        src={require('../../media/clean-icon.png')} 
         alt='+' 
         onClick={cleanContent}
         />

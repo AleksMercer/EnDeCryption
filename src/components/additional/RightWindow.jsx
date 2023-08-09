@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import CopyButton from './CopyButton'
-import CleanButton from './CleanButton'
+import CopyButton from './buttons/CopyButton'
+import CleanButton from './buttons/CleanButton'
 
 import { selectMode, selectContent, selectEncrypted } from '../../store' // selectors import
 
