@@ -125,9 +125,20 @@ body * > img, body * > button, body h1 {
       -ms-user-select: none;
           user-select: none;
 }
-body * > img.info-icon, body * > img.swap-icon {
+body img.info-icon, body img.swap-icon, body img.key-icon, body .info-btn, body .swap-btn, body .key-btn {
   height: 5vh;
   border-radius: 50%;
+}
+body * > .generate, body * > .save-close, body * > .result {
+  justify-self: center;
+  padding: 0.75% 3%;
+  border-radius: 1.5vh;
+  font-size: 2.2vh;
+  -webkit-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+body * > .generate:hover, body * > .save-close:hover, body * > .result:hover {
+  padding: 0.75% 4.5%;
 }
 body #root {
   background: url("./media/pattern.png");
@@ -219,6 +230,7 @@ body #root {
 }
 
 header {
+  /* two buttons and two windows - info and key */
   /* copy-tip "copied" */
   /*-------------------*/
 }
@@ -227,15 +239,69 @@ header h1 {
   font-family: "Libre Barcode 39 Text";
   font-size: 15vh;
 }
-header .info-btn {
+header .info-and-key {
+  display: grid;
+  grid-template: repeat(2, auto)/auto;
+  gap: 1.5vh;
   position: fixed;
   margin: 0.75%;
-  top: 0;
-  right: 0;
+  top: 0vh;
+  right: 0vh;
+  z-index: 75;
 }
-header .info-btn .info-icon {
+header .info-and-key .info-icon {
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
+}
+header .info-and-key .info-window, header .info-and-key .key-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  border: #A00 2px solid;
+  -webkit-backdrop-filter: blur(1vh);
+          backdrop-filter: blur(1vh);
+  z-index: 95;
+}
+header .info-and-key .info-window .close-btn, header .info-and-key .key-window .close-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 5vh;
+}
+header .info-and-key .info-window .close-btn img, header .info-and-key .key-window .close-btn img {
+  height: 5vh;
+}
+header .info-and-key .key-window {
+  display: grid;
+  grid-template: 1fr auto repeat(3, 1fr)/auto;
+  place-items: center;
+  gap: 1vh;
+  color: white;
+}
+header .info-and-key .key-window h2 {
+  font-size: 8vh;
+}
+header .info-and-key .key-window .key-input {
+  -ms-flex-item-align: start;
+      align-self: start;
+  font-size: 2vh;
+  height: 4.5vh;
+  width: 30%;
+  padding: 0 1vh 0 1vh;
+  border-radius: 1vh;
+  text-align: center;
+}
+header .info-and-key .key-window span {
+  font-size: 2.2vh;
+}
+header .info-and-key .key-window .generate {
+  -ms-flex-item-align: start;
+      align-self: start;
 }
 header .copy-tip {
   position: fixed;
@@ -251,7 +317,7 @@ header .copy-tip {
   font-size: 1.8vh;
   padding: 1vh 3.5vh;
   border-radius: 1.5vh;
-  z-index: 99;
+  z-index: 50;
 }
 header .copy-tip.active {
   -webkit-animation: copyTip 1s ease-in;
@@ -345,11 +411,13 @@ main .windows_left .clean-btn, main .windows_right .clean-btn {
   top: 15%;
 }
 main .windows .mode-swap {
-  -ms-flex-item-align: center;
-      align-self: center;
   -webkit-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
           transform: rotate(90deg);
+  display: grid;
+  grid-template: auto/auto;
+  align-self: center;
+  justify-self: center;
 }
 main .windows .mode-swap .swap-icon {
   -webkit-transition: all 0.3s ease;
@@ -365,17 +433,6 @@ main .windows .mode-swap .unrotate {
       -ms-transform: rotate(0deg);
           transform: rotate(0deg);
 }
-main .result {
-  justify-self: center;
-  padding: 0.75% 3%;
-  border-radius: 1.5vh;
-  font-size: 2.2vh;
-  -webkit-transition: all 0.15s ease-out;
-  transition: all 0.15s ease-out;
-}
-main .result:hover {
-  padding: 0.75% 4.5%;
-}
 
 footer {
   -ms-flex-item-align: end;
@@ -389,6 +446,16 @@ footer {
   }
   body > #root .full-name {
     display: none;
+  }
+  body > #root * > .generate, body > #root * > .save-close, body > #root * > .result {
+    padding: 1.5% 5%;
+    font-size: 2vh;
+  }
+  body > #root * > .generate:active, body > #root * > .save-close:active, body > #root * > .result:active {
+    padding: 1.5% 7%;
+  }
+  body > #root header > .info-and-key .key-input {
+    width: 90%;
   }
   body > #root main {
     row-gap: 2%;
@@ -416,120 +483,127 @@ footer {
         -ms-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-  body > #root main .result {
-    padding: 1.5% 5%;
-    font-size: 2vh;
-  }
-  body > #root main .result:active {
-    padding: 1.5% 7%;
-  }
 }
 /*---------EnCryption-Theme------------*/
-body.encryption #root {
+body.encryption > #root {
   background-color: rgb(49, 49, 49);
 }
-body.encryption #root * > img {
+body.encryption > #root * > img {
   -webkit-filter: invert(100%);
           filter: invert(100%);
 }
-body.encryption #root * > img.info-icon:hover, body.encryption #root * > img.swap-icon:hover {
+body.encryption > #root * > img.info-icon:hover, body.encryption > #root * > img.swap-icon:hover {
   -webkit-filter: invert(0%);
           filter: invert(0%);
   background-color: #A00;
   -webkit-box-shadow: 0px 0px 0.3vh 0.3vh #A00;
           box-shadow: 0px 0px 0.3vh 0.3vh #A00;
 }
-body.encryption #root header h1 {
+body.encryption > #root * > .generate, body.encryption > #root * > .save-close, body.encryption > #root * > .result {
+  border: 0.25vh solid #A00;
+  color: white;
+}
+body.encryption > #root * > .generate:hover, body.encryption > #root * > .save-close:hover, body.encryption > #root * > .result:hover {
+  background-color: #A00;
+}
+body.encryption > #root header h1 {
   color: #A00;
 }
-body.encryption #root header .copy-tip {
+body.encryption > #root header .copy-tip {
   color: black;
   background-color: rgb(255, 255, 255);
 }
-body.encryption #root main textarea {
+body.encryption > #root header .info-window, body.encryption > #root header .key-window {
+  border: #A00 2px solid;
+  color: white;
+}
+body.encryption > #root header .key-window > .key-input {
+  border: 0.25vh solid #A00;
+}
+body.encryption > #root main textarea {
   color: rgb(255, 255, 255);
   background-color: rgba(170, 0, 0, 0.05);
   border: 0.25vh solid #A00;
 }
-body.encryption #root main ::-webkit-scrollbar-thumb {
+body.encryption > #root main ::-webkit-scrollbar-thumb {
   background-color: #A00;
 }
-body.encryption #root main .result {
-  border: 0.25vh solid #A00;
+body.encryption > #root footer {
   color: white;
 }
-body.encryption #root main .result:hover {
-  background-color: #A00;
-}
-body.encryption #root footer {
-  color: white;
-}
-body.encryption #root footer div > span > a {
+body.encryption > #root footer div > span > a {
   color: #0A0;
 }
 
 /*---------DeCryption-Theme------------*/
-body.decryption #root {
+body.decryption > #root {
   background-color: rgb(255, 255, 255);
 }
-body.decryption #root * > img.info-icon:hover, body.decryption #root * > img.swap-icon:hover {
+body.decryption > #root * > img.info-icon:hover, body.decryption > #root * > img.swap-icon:hover {
   -webkit-filter: invert(0%);
           filter: invert(0%);
   background-color: #0A0;
   -webkit-box-shadow: 0px 0px 0.3vh 0.3vh #0A0;
           box-shadow: 0px 0px 0.3vh 0.3vh #0A0;
 }
-body.decryption #root header h1 {
+body.decryption > #root * > .generate, body.decryption > #root * > .save-close, body.decryption > #root * > .result {
+  border: 0.25vh solid #0A0;
+}
+body.decryption > #root * > .generate:hover, body.decryption > #root * > .save-close:hover, body.decryption > #root * > .result:hover {
+  background-color: #0A0;
+}
+body.decryption > #root header h1 {
   color: #0A0;
 }
-body.decryption #root header .copy-tip {
+body.decryption > #root header .copy-tip {
   color: white;
   background-color: rgb(49, 49, 49);
 }
-body.decryption #root main textarea {
+body.decryption > #root header .info-window, body.decryption > #root header .key-window {
+  border: #0A0 2px solid;
+  color: black;
+}
+body.decryption > #root header .key-window > .key-input {
+  border: 0.25vh solid #0A0;
+}
+body.decryption > #root main textarea {
   color: black;
   background-color: rgba(0, 170, 0, 0.05);
   border: 0.25vh solid #0A0;
 }
-body.decryption #root main ::-webkit-scrollbar-thumb {
+body.decryption > #root main ::-webkit-scrollbar-thumb {
   background-color: #0A0;
 }
-body.decryption #root main .result {
-  border: 0.25vh solid #0A0;
-}
-body.decryption #root main .result:hover {
-  background-color: #0A0;
-}
-body.decryption #root footer > div > span > a {
+body.decryption > #root footer > div > span > a {
   color: #A00;
 }
 
 /*---------Mobile-breakpoint------------*/
 @media (max-width: 700px) {
-  body.encryption #root * > img.info-icon:hover, body.encryption #root * > img.swap-icon:hover {
+  body.encryption > #root * > img.info-icon:hover, body.encryption > #root * > img.swap-icon:hover {
     -webkit-filter: invert(100%);
             filter: invert(100%);
     background-color: rgba(255, 255, 255, 0);
     -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
             box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
   }
-  body.encryption #root main .result:hover {
+  body.encryption > #root * > .generate:hover, body.encryption > #root * > .save-close:hover, body.encryption > #root * > .result:hover {
     background-color: rgba(255, 255, 255, 0);
   }
-  body.encryption #root main .result:active {
+  body.encryption > #root * > .generate:active, body.encryption > #root * > .save-close:active, body.encryption > #root * > .result:active {
     background-color: #A00;
   }
-  body.decryption #root * > img.info-icon:hover, body.decryption #root * > img.swap-icon:hover {
+  body.decryption > #root * > img.info-icon:hover, body.decryption > #root * > img.swap-icon:hover {
     -webkit-filter: invert(0%);
             filter: invert(0%);
     background-color: rgba(255, 255, 255, 0);
     -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
             box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
   }
-  body.decryption #root main .result:hover {
+  body.decryption > #root * > .generate:hover, body.decryption > #root * > .save-close:hover, body.decryption > #root * > .result:hover {
     background-color: rgba(255, 255, 255, 0);
   }
-  body.decryption #root main .result:active {
+  body.decryption > #root * > .generate:active, body.decryption > #root * > .save-close:active, body.decryption > #root * > .result:active {
     background-color: #0A0;
   }
 }

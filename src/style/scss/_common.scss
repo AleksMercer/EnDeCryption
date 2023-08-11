@@ -8,14 +8,28 @@ html, body, #root {
   overflow: hidden;
 }
 
-body {
+body { //some common settings
   * > img, * > button, h1{
     user-select: none;
   }
 
-  * > img.info-icon, * > img.swap-icon { //icon height
+  img.info-icon, img.swap-icon, img.key-icon, .info-btn, .swap-btn, .key-btn {//icons & buttons height
     height: 5vh;
     border-radius: 50%;
+  }
+
+  * > .generate, * > .save-close , * > .result {
+    justify-self: center;
+    padding: 0.75% 3%;
+
+    border-radius: $border-radius;
+    font-size: 2.2vh;
+
+    transition: all 0.15s ease-out;
+  }
+
+  * > .generate:hover, * > .save-close:hover , * > .result:hover {
+    padding: 0.75% 4.5%;
   }
 
   #root {
@@ -103,19 +117,87 @@ header {
     font-size: 15vh;
   }
 
-  .info-btn {
+  /* two buttons and two windows - info and key */
+  .info-and-key {
+    @include grid_template(repeat(2, auto) / auto);
+    gap: 1.5vh;
+
     position: fixed;
     margin: 0.75%;
-    top: 0;
-    right: 0;
+    top: 0vh;
+    right: 0vh;
+
+    z-index: 75;
 
     .info-icon {
       transition: all 0.2s ease;
     }
+
+    .info-window, .key-window {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      height: 100%;
+      width: 100%;
+
+      border: #A00 2px solid;
+      backdrop-filter: blur(1vh);
+
+      z-index: 95;
+
+      .close-btn {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 5vh;
+
+        img {
+          height: 5vh;
+        }
+      }
+    }
+
+    .info-window {
+    }
+
+    .key-window {
+      @include grid_template(1fr auto repeat(3, 1fr)/ auto);
+      place-items: center;
+      gap: 1vh;
+
+      color: white;
+
+      h2 {
+        font-size: 8vh;
+      }
+
+      .key-input {
+        align-self: start;
+        font-size: 2vh;
+        height: 4.5vh;
+        width: 30%;
+        padding: 0 1vh 0 1vh;
+        border-radius: 1vh;
+        text-align: center;
+      }
+
+      span {
+        font-size: 2.2vh;
+      }
+
+      .generate {
+        align-self: start;
+      }
+
+      .save-close {
+
+      }
+    }
   }
 
   /* copy-tip "copied" */
-
   .copy-tip {
     position: fixed;
     top: -5%;
@@ -127,7 +209,7 @@ header {
     padding: 1vh 3.5vh;
     border-radius: $border-radius;
 
-    z-index: 99;
+    z-index: 50;
   }
 
   .copy-tip.active {
@@ -219,9 +301,12 @@ main {
     }
 
     .mode-swap {
-      align-self: center;
       transform: rotate(90deg);
-  
+
+      @include grid_template(auto / auto);
+      align-self: center;
+      justify-self: center;
+
       .swap-icon {
         transition: all 0.3s ease;
       }
@@ -234,20 +319,6 @@ main {
         transform: rotate(0deg);
       }
     }
-  }
-
-  .result {
-    justify-self: center;
-    padding: 0.75% 3%;
-
-    border-radius: $border-radius;
-    font-size: 2.2vh;
-
-    transition: all 0.15s ease-out;
-  }
-
-  .result:hover {
-    padding: 0.75% 4.5%;
   }
 }
 

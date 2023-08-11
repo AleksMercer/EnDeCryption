@@ -1,7 +1,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { selectMode,selectCopy } from '../store'
+import { selectMode, selectCopy } from '../store'
+
+import InfoButton from './additional/InfoWindow'
+import KeyButton from './additional/KeyWindow'
 
 
 function Header() { /* Here i need to make info field with (modal window) */
@@ -19,17 +22,15 @@ function Header() { /* Here i need to make info field with (modal window) */
         }
       </h1>
 
-      <button className='info-btn' >  
-        <img 
-          className='info-icon'
-          draggable='false'
-          src={require('./media/info-icon.png')} 
-          alt='?' />
-      </button>
+      <div className='info-and-key'>
 
-      <div className={`copy-tip ${copyState && 'active'}`}>
-        Copied!
+        <InfoButton />
+
+        <KeyButton />
+
       </div>
+
+      <div className={`copy-tip ${copyState && 'active'}`}>Copied!</div>
       
     </header>
   )

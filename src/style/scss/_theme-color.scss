@@ -6,149 +6,157 @@ $border-green: 0.25vh solid $green;
 
 /*---------EnCryption-Theme------------*/
 
-body.encryption {
-  #root {
-    background-color: rgb(49, 49, 49); // color of pattern
+body.encryption > #root {
+  background-color: rgb(49, 49, 49); // color of pattern
 
-    * > img { //icon color and hover
-      filter: invert(100%);
+  * > img { //icon color and hover
+    filter: invert(100%);
+  }
+
+  * > img.info-icon:hover, * > img.swap-icon:hover {
+    filter: invert(0%);
+    background-color: $red;
+    box-shadow: 0px 0px 0.3vh 0.3vh $red;
+  }
+
+  * > .generate, * > .save-close , * > .result {
+    border: $border-red;
+    color: white
+  }
+
+  * > .generate:hover, * > .save-close:hover , * > .result:hover {
+    background-color: $red;
+  }
+
+  header {
+    h1 { color: $red }
+
+    .copy-tip {
+      color: black;
+      background-color: rgb(255, 255, 255); // color of pattern
     }
 
-    * > img.info-icon:hover, * > img.swap-icon:hover {
-      filter: invert(0%);
-      background-color: $red;
-      box-shadow: 0px 0px 0.3vh 0.3vh $red;
-    }
-
-    header {
-      h1 { color: $red }
-
-      .copy-tip {
-        color: black;
-        background-color: rgb(255, 255, 255); // color of pattern
-      }
-    }
-
-    main {
-
-      textarea { 
-        color: rgb(255, 255, 255);
-        background-color: rgba(170, 0, 0, 0.05);
-        border: $border-red;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background-color: $red;
-      }
-
-      .result {
-        border: $border-red;
-        color: white
-      }
-
-      .result:hover {
-        background-color: $red;
-      }
-    }
-
-    footer {
+    .info-window, .key-window {
+      border: $red 2px solid;
       color: white;
-      div > span > a {
-        color: $green;
-      }
+    }
+
+    .key-window > .key-input {
+      border: $border-red;
+    }
+  }
+
+  main {
+
+    textarea { 
+      color: rgb(255, 255, 255);
+      background-color: rgba(170, 0, 0, 0.05);
+      border: $border-red;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: $red;
+    }
+  }
+
+  footer {
+    color: white;
+    div > span > a {
+      color: $green;
     }
   }
 }
 
 /*---------DeCryption-Theme------------*/
 
-body.decryption {
-  #root {
-    background-color: rgb(255, 255, 255); // color of pattern
+body.decryption > #root {
+  background-color: rgb(255, 255, 255); // color of pattern
 
-    * > img.info-icon:hover, * > img.swap-icon:hover {
-      filter: invert(0%);
-      background-color: $green;
-      box-shadow: 0px 0px 0.3vh 0.3vh $green;
-    }
+  * > img.info-icon:hover, * > img.swap-icon:hover {
+    filter: invert(0%);
+    background-color: $green;
+    box-shadow: 0px 0px 0.3vh 0.3vh $green;
+  }
 
-    header {
-      h1 { color: $green }
-      
-      .copy-tip {
-        color: white;
-        background-color: rgb(49, 49, 49); // color of pattern
-      }
-    }
+  * > .generate, * > .save-close , * > .result {
+    border: $border-green;
+  }
 
-    main {
-
-      textarea { 
-        color: black;
-        background-color: rgba(0, 170, 0, 0.05);
-        border: $border-green;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background-color: $green;
-      }
-
-      .result {
-        border: $border-green;
-      }
-
-      .result:hover {
-        background-color: $green;
-      }
-    }
-
-    footer > div > span > a {
-      color: $red;
-    }
+  * > .generate:hover, * > .save-close:hover , * > .result:hover {
+    background-color: $green;
+  }
+  
+  header {
+    h1 { color: $green }
     
+    .copy-tip {
+      color: white;
+      background-color: rgb(49, 49, 49); // color of pattern
+    }
+
+    .info-window, .key-window {
+      border: $green  2px solid;
+      color: black;
+    }
+
+    .key-window > .key-input {
+      border: $border-green;
+    }
+  }
+
+  main {
+
+    textarea { 
+      color: black;
+      background-color: rgba(0, 170, 0, 0.05);
+      border: $border-green;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: $green;
+    }
+  }
+
+  footer > div > span > a {
+    color: $red;
   }
 }
 
 /*---------Mobile-breakpoint------------*/
 
 @media (max-width: 700px) { 
-body.encryption {
-  #root {
-    
+
+  body.encryption > #root {
+      
     * > img.info-icon:hover, * > img.swap-icon:hover {
       filter: invert(100%);
       background-color: rgba(255, 255, 255, 0);
       box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     }
 
-    main {
-      .result:hover {
-        background-color: rgba(255, 255, 255, 0);
-      }
-      .result:active {
-        background-color: $red;
-      }
+    * > .generate:hover, * > .save-close:hover , * > .result:hover {
+      background-color: rgba(255, 255, 255, 0);
+    }
+
+    * > .generate:active, * > .save-close:active , * > .result:active {
+      background-color: $red;
     }
   }
-}
 
-body.decryption {
-  #root {
-    
+  body.decryption > #root {
+      
     * > img.info-icon:hover, * > img.swap-icon:hover {
       filter: invert(0%);
       background-color: rgba(255, 255, 255, 0);
       box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     }
 
-    main {
-      .result:hover {
-        background-color: rgba(255, 255, 255, 0);
-      }
-      .result:active {
-        background-color: $green;
-      }
+    * > .generate:hover, * > .save-close:hover , * > .result:hover {
+      background-color: rgba(255, 255, 255, 0);
+    }
+
+    * > .generate:active, * > .save-close:active , * > .result:active {
+      background-color: $green;
     }
   }
 }    
-}
