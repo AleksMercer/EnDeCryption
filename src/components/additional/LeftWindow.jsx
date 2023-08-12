@@ -21,7 +21,7 @@ function LeftWindow() {
         placeholder={modeState ? 'Type something for EnCryption' : 'Type something for DeCryption'}
         name='content'
         value={modeState ? contentState : encryptedState}
-        maxLength={ modeState ? 300 : 1000 }
+        maxLength='300'
         onChange={ modeState ? 
           (e) => dispatch(changeContent(e.target.value)) 
           : 

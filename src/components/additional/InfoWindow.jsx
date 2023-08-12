@@ -7,7 +7,7 @@ function InfoButton() {
 
   return (
   <>
-    <button className='info-btn' onClick={() => setInfoWindow(true)} >
+    <button className='info-btn' onClick={() => setInfoWindow(true)} disabled>
       <img
       className='info-icon'
       draggable='false'

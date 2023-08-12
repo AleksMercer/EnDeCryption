@@ -3,6 +3,20 @@ import React, { useState } from 'react'
 function KeyButton() {
 
   const [keyWindow, setKeyWindow] = useState(false)  
+  const [key, setKey] = useState('')  
+
+  const generateKey = () => {
+
+    const randomBytes = new Uint8Array(32)
+  
+    crypto.getRandomValues(randomBytes)
+    
+    const keyHex = Array.from(randomBytes).map(byte => byte.toString(16).padStart(2, '0')).join('')
+    
+    const key32Chars = keyHex.slice(16, 48)
+    
+    setKey(key32Chars) 
+  }
 
   return (
   <>
@@ -18,29 +32,29 @@ function KeyButton() {
       <div className='key-window'>
 
         <h2>Key</h2>
-
-        <span>32 / 32</span>
         
         <input 
           className='key-input' 
           type='text' 
           name='key'
           id='1'
-          maxlength='32'
-          placeholder='Type or generate key'
+          maxLength='32'
+          placeholder='Generate key'
+          value={key}
+          disabled
         />
 
         <button 
           className='generate'
-          //onClick={}
+          onClick={generateKey}
           >
           Generate key
         </button>
 
         <button 
           className='save-close'
-          //onClick={}
-          >
+          onClick={() => setKeyWindow(false)}
+        >
           Save & Close
         </button>
         
