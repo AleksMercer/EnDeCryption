@@ -1,9 +1,18 @@
-import React, { useState } from 'react'
+import { useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+
+import CopyButton from './buttons/CopyButton'
+
+import { selectKey } from '../../store' // selectors import
+import { generatedKey } from '../../store' // reducers import
 
 function KeyButton() {
 
+  const dispatch = useDispatch()
+  
+  const keyState = useSelector(selectKey)
+
   const [keyWindow, setKeyWindow] = useState(false)  
-  const [key, setKey] = useState('')  
 
   const generateKey = () => {
 
@@ -14,8 +23,13 @@ function KeyButton() {
     const keyHex = Array.from(randomBytes).map(byte => byte.toString(16).padStart(2, '0')).join('')
     
     const key32Chars = keyHex.slice(16, 48)
-    
-    setKey(key32Chars) 
+
+    dispatch(generatedKey(key32Chars))
+  }
+
+  const setCookie = () => {
+    let keyBase64 = btoa(keyState)
+    document.cookie = `EnDeCKey=${keyBase64}; path=/; max-age=604800; secure;`
   }
 
   return (
@@ -33,16 +47,23 @@ function KeyButton() {
 
         <h2>Key</h2>
         
-        <input 
-          className='key-input' 
-          type='text' 
-          name='key'
-          id='1'
-          maxLength='32'
-          placeholder='Generate key'
-          value={key}
-          disabled
-        />
+        <div className='container'>
+
+          <span className={keyState.length < 32 ? 'red-span' : 'green-span'}>{keyState.length} / 32</span>
+
+          <input
+            className='key-input'
+            type='text'
+            name='key'
+            maxLength='32'
+            placeholder='Generate or type key'
+            value={keyState}
+            onChange={(e) => dispatch(generatedKey(e.target.value))}
+          />
+
+          <CopyButton window='key' />
+          
+        </div>
 
         <button 
           className='generate'
@@ -53,18 +74,14 @@ function KeyButton() {
 
         <button 
           className='save-close'
-          onClick={() => setKeyWindow(false)}
+          onClick={() => {
+            setKeyWindow(false)
+            setCookie()
+          }}
         >
           Save & Close
         </button>
         
-        <button className='close-btn' onClick={() => setKeyWindow(false)} >
-          <img
-          className='close-icon'
-          draggable='false'
-          src={require('../media/close-icon.png')}
-          alt='X' />
-        </button>
       </div>
     }
   </>

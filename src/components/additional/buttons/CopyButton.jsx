@@ -1,16 +1,17 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { selectMode, selectCopy, selectContent, selectEncrypted } from '../../../store' // selectors import
+import { selectMode, selectCopy, selectContent, selectEncrypted, selectKey } from '../../../store' // selectors import
 import { copySwap } from '../../../store' // reducers import
 
 
 function CopyButton(props) {
 
-  const window = props.window //left or right window
+  const window = props.window //left, right or key window
 
   const dispatch = useDispatch()
 
+  const keyState = useSelector(selectKey)
   const modeState = useSelector(selectMode)
   const copyState = useSelector(selectCopy)
   const contentState = useSelector(selectContent)
@@ -25,11 +26,18 @@ function CopyButton(props) {
     } else if ((window === 'left' && !modeState) || (window === 'right' && modeState)) {
 
       await navigator.clipboard.writeText(encryptedState)
+
+    } else if (window === 'key') {
+
+      await navigator.clipboard.writeText(keyState)
     }
   }
 
   const copyTip = () => {
-    if ( (!contentState.length && window === 'left') || (!encryptedState.length && window === 'right') ) return
+    if ( (!contentState.length && window === 'left') || 
+         (!encryptedState.length && window === 'right') ||
+         (!keyState.length && window === 'key')
+    ) return
 
     if (copyState) return
     dispatch(copySwap())

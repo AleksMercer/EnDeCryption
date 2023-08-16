@@ -41,7 +41,7 @@ body.encryption > #root {
       color: white;
     }
 
-    .key-window > .key-input {
+    .key-input {
       border: $border-red;
     }
   }
@@ -99,7 +99,7 @@ body.decryption > #root {
       color: black;
     }
 
-    .key-window > .key-input {
+    .key-input {
       border: $border-green;
     }
   }

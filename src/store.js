@@ -1,5 +1,6 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 
+let cookie = atob(document.cookie.slice(9))
 
 export const globalStateStore = createSlice({
   name: 'store',
@@ -9,6 +10,7 @@ export const globalStateStore = createSlice({
     copyMode: false,
     contentValue: '',
     encryptedContent: '',
+    key: cookie
   },
   
   reducers: {
@@ -16,6 +18,7 @@ export const globalStateStore = createSlice({
     copySwap: (state) => { state.copyMode = !state.copyMode },
     changeContent: (state, action) => { state.contentValue = action.payload },
     encryptionContent: (state, action) => { state.encryptedContent = action.payload },
+    generatedKey: (state, action) => { state.key = action.payload },
   },
 })
 
@@ -35,12 +38,14 @@ const selectCopy = (state) => state.store.copyMode
 const selectContent = (state) => state.store.contentValue
 /* selectEncrypted - content from rightWindow.    const encryptedState = useSelector(selectEncrypted) */
 const selectEncrypted = (state) => state.store.encryptedContent
+/* selectKey - key from key-input.                const keyState = useSelector(selectKey) */
+const selectKey = (state) => state.store.key
 
 
 /* Export all selectors */
-export { selectMode, selectCopy, selectContent, selectEncrypted }
+export { selectMode, selectCopy, selectContent, selectEncrypted, selectKey }
 //import { selectMode, selectContent, selectEncrypted } from '../../store' // selectors import
 
 /* export reducers-func */
-export const { modeSwap, copySwap, changeContent, encryptionContent } = globalStateStore.actions
-// import { modeSwap, copySwap, changeContent, encryptionContent } from '../../store' // reducers import
+export const { modeSwap, copySwap, changeContent, encryptionContent, generatedKey } = globalStateStore.actions
+// import { modeSwap, copySwap, changeContent, encryptionContent, generatedKey } from '../../store' // reducers import
