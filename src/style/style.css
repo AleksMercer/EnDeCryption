@@ -548,6 +548,9 @@ body.encryption > #root main textarea {
   background-color: rgba(170, 0, 0, 0.05);
   border: 0.25vh solid #A00;
 }
+body.encryption > #root main .symbol-counter {
+  color: white;
+}
 body.encryption > #root main ::-webkit-scrollbar-thumb {
   background-color: #A00;
 }
@@ -593,6 +596,9 @@ body.decryption > #root main textarea {
   color: black;
   background-color: rgba(0, 170, 0, 0.05);
   border: 0.25vh solid #0A0;
+}
+body.decryption > #root main .symbol-counter {
+  color: black;
 }
 body.decryption > #root main ::-webkit-scrollbar-thumb {
   background-color: #0A0;

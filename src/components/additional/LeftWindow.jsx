@@ -21,8 +21,8 @@ function LeftWindow() {
         placeholder={modeState ? 'Type something for EnCryption' : 'Type something for DeCryption'}
         name='content'
         value={modeState ? contentState : encryptedState}
-        maxLength='300'
-        onChange={ modeState ? 
+        maxLength={modeState ? 500 : 2500}
+        onChange={modeState ? 
           (e) => dispatch(changeContent(e.target.value)) 
           : 
           (e) => dispatch(encryptionContent(e.target.value)) 
@@ -30,7 +30,11 @@ function LeftWindow() {
         autoFocus
       />
 
-      { modeState && <span className='symbol-counter'>{contentState.length} / 300</span> }
+      { modeState ? 
+        <span className='symbol-counter'>{contentState.length} / 500</span> 
+        :
+        <span className='symbol-counter'>{encryptedState.length} / 2500</span> 
+      }
 
       <CopyButton window='left' />
 

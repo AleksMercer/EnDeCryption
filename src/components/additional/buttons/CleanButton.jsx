@@ -7,11 +7,11 @@ import { changeContent, encryptionContent } from '../../../store' // reducers im
 
 function CleanButton(props) {
 
+  const dispatch = useDispatch()
+  
   const window = props.window //left or right window
 
   const modeState = useSelector(selectMode)
-
-  const dispatch = useDispatch()
 
   const cleanContent = () => {
 

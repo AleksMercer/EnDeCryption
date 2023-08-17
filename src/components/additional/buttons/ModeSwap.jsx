@@ -2,11 +2,12 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { selectMode } from '../../../store' // selectors import
-import { modeSwap } from '../../../store' // reducers import
+import { modeSwap, changeContent, encryptionContent } from '../../../store' // reducers import
 
 function ModeSwap() {
 
   const dispatch = useDispatch()
+
   const modeState = useSelector(selectMode)
 
   //#region — change body classname for change theme
@@ -30,7 +31,11 @@ function ModeSwap() {
        <img 
         className={`swap-icon ${modeState ? 'rotate' : 'unrotate'}`}
         src={require('../../media/swap-icon.png')} alt='—><—' 
-        onClick={() => dispatch(modeSwap())}
+        onClick={() => {
+          dispatch(modeSwap())
+          dispatch(changeContent(''))       
+          dispatch(encryptionContent(''))
+        }}
         draggable='false'
        />
     </button>

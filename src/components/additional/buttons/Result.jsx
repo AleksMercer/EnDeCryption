@@ -11,19 +11,77 @@ function Result() {
   const contentState = useSelector(selectContent)
   const encryptedState = useSelector(selectEncrypted)
 
-  const encryption = () => {
-    dispatch( encryptionContent( btoa(contentState) ) )
+  let cookie = atob(document.cookie.slice(9)) // get cookie key
+
+  //#region — EnDeC Algorithm
+
+  const encoder = new TextEncoder() 
+  const decoder = new TextDecoder()
+
+  const encryption = async () => {
+    try {
+      const data = encoder.encode(contentState)
+
+      const cryptoKey = await crypto.subtle.importKey (
+        'raw',
+        encoder.encode(cookie),
+        { name: 'AES-CBC', length: 256 },
+        false,
+        ['encrypt']
+      )
+  
+      const encryptedData = await crypto.subtle.encrypt (
+        { name: 'AES-CBC', iv: new Uint8Array(16) },
+        cryptoKey,
+        data
+      )
+  
+      const encryptedHex = Array
+        .from(new Uint8Array(encryptedData))
+        .map(byte => ('00' + byte.toString(16))
+        .slice(-2))
+        .join('')
+  
+      dispatch( encryptionContent( encryptedHex ))
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  const decryption = () => {
-    dispatch( changeContent( atob(encryptedState) ) )
+  const decryption = async () => {
+    try {
+      const data = new Uint8Array(encryptedState
+        .match(/.{1,2}/g)
+        .map(byte => parseInt(byte, 16)))
+
+      const cryptoKey = await crypto.subtle.importKey (
+        'raw',
+        encoder.encode(cookie),
+        { name: 'AES-CBC', length: 256 },
+        false,
+        ['decrypt']
+      )
+
+      const decryptedData = await crypto.subtle.decrypt (
+        { name: 'AES-CBC', iv: new Uint8Array(16) },
+        cryptoKey,
+        data
+      )
+
+      dispatch( changeContent( decoder.decode(decryptedData) ))
+      
+    } catch (error) {
+      console.log(error)
+    }
   }
+  //#endregion
   
   return (
     <button 
       className='result'
       onClick={modeState ? encryption : decryption}
-      >
+    >
       Result
     </button>
   )

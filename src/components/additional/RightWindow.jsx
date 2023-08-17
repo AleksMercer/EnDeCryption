@@ -18,7 +18,7 @@ function RightWindow() {
       <textarea
         placeholder={modeState ? 'EnCryption result' : 'DeCryption result'}
         name='content'
-        value={modeState ? encryptedState : contentState }
+        value={modeState ? encryptedState : contentState}
         disabled
       />
 

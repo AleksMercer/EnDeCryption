@@ -14,14 +14,15 @@ function App() {
   return (
     <>
       { isLoading && 
-      <div className='loadscreen'>
-        <div className='loading-effect'>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div> }
+        <div className='loadscreen'>
+          <div className='loading-effect'>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div> 
+      }
 
       <Header />
     

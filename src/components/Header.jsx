@@ -25,7 +25,6 @@ function Header() { /* Here i need to make info field with (modal window) */
       <div className='info-and-key'>
 
         <InfoButton />
-
         <KeyButton />
 
       </div>

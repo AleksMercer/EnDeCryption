@@ -28,8 +28,12 @@ function KeyButton() {
   }
 
   const setCookie = () => {
-    let keyBase64 = btoa(keyState)
-    document.cookie = `EnDeCKey=${keyBase64}; path=/; max-age=604800; secure;`
+    try {
+      let keyBase64 = btoa(keyState)
+      document.cookie = `EnDeCKey=${keyBase64}; path=/; max-age=604800; secure;`  
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
