@@ -7,7 +7,8 @@ export const globalStateStore = createSlice({
   
   initialState: {
     mode: true,
-    copyMode: false,
+    copyTip: false,
+    keyTip: false,
     contentValue: '',
     encryptedContent: '',
     key: cookie
@@ -15,7 +16,8 @@ export const globalStateStore = createSlice({
   
   reducers: {
     modeSwap: (state) => { state.mode = !state.mode },
-    copySwap: (state) => { state.copyMode = !state.copyMode },
+    copyTipSwap: (state) => { state.copyTip = !state.copyTip },
+    keyTipSwap: (state) => { state.keyTip = !state.keyTip },
     changeContent: (state, action) => { state.contentValue = action.payload },
     encryptionContent: (state, action) => { state.encryptedContent = action.payload },
     generatedKey: (state, action) => { state.key = action.payload },
@@ -32,8 +34,10 @@ export default configureStore({
 
 /* selectMode - boolean value for mode choosing.  const modeState = useSelector(selectMode) */
 const selectMode = (state) => state.store.mode
-/* selectCopy - boolean value for mode choosing.  const copyState = useSelector(selectCopy) */
-const selectCopy = (state) => state.store.copyMode
+/* selectCopyTip - boolean value for mode choosing.  const copyTipState = useSelector(selectCopyTip) */
+const selectCopyTip = (state) => state.store.copyTip
+/* selectKeyTip - boolean value for mode choosing.  const keyTipState = useSelector(selectKeyTip) */
+const selectKeyTip = (state) => state.store.keyTip
 /* selectContent - content from leftWindow.       const contentState = useSelector(selectContent) */
 const selectContent = (state) => state.store.contentValue
 /* selectEncrypted - content from rightWindow.    const encryptedState = useSelector(selectEncrypted) */
@@ -43,9 +47,9 @@ const selectKey = (state) => state.store.key
 
 
 /* Export all selectors */
-export { selectMode, selectCopy, selectContent, selectEncrypted, selectKey }
-//import { selectMode, selectContent, selectEncrypted } from '../../store' // selectors import
+export { selectMode, selectCopyTip, selectKeyTip, selectContent, selectEncrypted, selectKey }
+//import { selectMode, selectCopyTip, selectKeyTip, selectContent, selectEncrypted, selectKey } from '../../store' // selectors import
 
 /* export reducers-func */
-export const { modeSwap, copySwap, changeContent, encryptionContent, generatedKey } = globalStateStore.actions
-// import { modeSwap, copySwap, changeContent, encryptionContent, generatedKey } from '../../store' // reducers import
+export const { modeSwap, copyTipSwap, keyTipSwap, changeContent, encryptionContent, generatedKey } = globalStateStore.actions
+// import { modeSwap, copyTipSwap, keyTipSwap, changeContent, encryptionContent, generatedKey } from '../../store' // reducers import

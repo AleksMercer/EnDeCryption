@@ -1,16 +1,17 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { selectMode, selectCopy } from '../store'
+import { selectMode, selectCopyTip, selectKeyTip } from '../store'
 
-import InfoButton from './additional/InfoWindow'
-import KeyButton from './additional/KeyWindow'
+import InfoWindow from './additional/InfoWindow'
+import KeyWindow from './additional/KeyWindow'
 
 
 function Header() { /* Here i need to make info field with (modal window) */
 
   const modeState = useSelector(selectMode)
-  const copyState = useSelector(selectCopy) 
+  const copyTipState = useSelector(selectCopyTip) 
+  const keyTipState = useSelector(selectKeyTip)
 
   return (
     <header>
@@ -24,12 +25,13 @@ function Header() { /* Here i need to make info field with (modal window) */
 
       <div className='info-and-key'>
 
-        <InfoButton />
-        <KeyButton />
+        <InfoWindow />
+        <KeyWindow />
 
       </div>
 
-      <div className={`copy-tip ${copyState && 'active'}`}>Copied!</div>
+      <div className={`copy-tip ${copyTipState && 'active'}`}>Copied!</div>
+      <div className={`key-tip ${keyTipState && 'active'}`}>Wrong Key!</div>
       
     </header>
   )

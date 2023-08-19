@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { selectMode, selectContent, selectEncrypted } from '../../../store' // selectors import
-import { changeContent, encryptionContent } from '../../../store' // reducers import
+import { keyTipSwap, changeContent, encryptionContent } from '../../../store' // reducers import
 
 function Result() {
 
@@ -45,7 +45,8 @@ function Result() {
       dispatch( encryptionContent( encryptedHex ))
 
     } catch (error) {
-      console.log(error)
+      dispatch(keyTipSwap())
+      setTimeout(() => dispatch(keyTipSwap()), 1000);
     }
   }
 
@@ -72,7 +73,8 @@ function Result() {
       dispatch( changeContent( decoder.decode(decryptedData) ))
       
     } catch (error) {
-      console.log(error)
+      dispatch(keyTipSwap())
+      setTimeout(() => dispatch(keyTipSwap()), 1000);
     }
   }
   //#endregion

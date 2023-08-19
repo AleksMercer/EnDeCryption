@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import CopyButton from './buttons/CopyButton'
 
 import { selectKey } from '../../store' // selectors import
-import { generatedKey } from '../../store' // reducers import
+import { keyTipSwap, generatedKey } from '../../store' // reducers import
 
 function KeyButton() {
 
@@ -29,10 +29,14 @@ function KeyButton() {
 
   const setCookie = () => {
     try {
+      
       let keyBase64 = btoa(keyState)
       document.cookie = `EnDeCKey=${keyBase64}; path=/; max-age=604800; secure;`  
+      setKeyWindow(false)
+
     } catch (error) {
-      console.error(error)
+      dispatch(keyTipSwap())
+      setTimeout(() => dispatch(keyTipSwap()), 1000);
     }
   }
 
@@ -78,10 +82,7 @@ function KeyButton() {
 
         <button 
           className='save-close'
-          onClick={() => {
-            setKeyWindow(false)
-            setCookie()
-          }}
+          onClick={setCookie}
         >
           Save & Close
         </button>
