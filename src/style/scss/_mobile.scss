@@ -21,6 +21,19 @@ $gap: 2%;
     .container {
       width: 90%;
     }
+    header {
+      .info-container { 
+        * > p {
+          line-height: 125%;
+        }
+
+        .interface {
+          p {
+            align-items: start;
+          }
+        }
+      }
+    }
 
     main {
       row-gap: $gap;

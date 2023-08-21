@@ -9,7 +9,7 @@ html, body, #root {
 }
 
 body { //some common settings
-  * > img, * > button, h1{
+  * > img, * > button, h1, h2, h3 {
     user-select: none;
   }
 
@@ -150,21 +150,6 @@ header {
       backdrop-filter: blur(1vh);
     }
 
-    .info-window {
-      z-index: 96;
-
-      .close-btn {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        height: 5vh;
-
-        img {
-          height: 5vh;
-        }
-      }
-    }
-
     .key-window {
       @include grid_template(repeat(4, 1fr)/ auto);
       place-items: center;
@@ -216,6 +201,115 @@ header {
 
       .generate {
         align-self: start;
+      }
+    }
+
+    .info-window {
+      $small-gap: 1vh;
+      $mid-gap: 2vh;
+      $big-gap: 4vh;
+
+      z-index: 96;
+      
+      ::-webkit-scrollbar {
+        width: 0;
+        background-color: rgba(0, 0, 0, 0);
+      }
+      
+      ::-webkit-scrollbar-track {
+        background-color: rgba(0, 0, 0, 0);
+      } 
+
+      .info-container { //make text design - font and spacing
+        width: 100%;
+        height: 100%;
+        padding: 1.5vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        @include grid_template(repeat(3, auto) / 1fr);
+        gap: $big-gap;
+
+        * > p {
+          font-size: 2vh;
+          // letter-spacing: ;
+          // word-spacing: ;
+        }
+
+        * > h2 {
+          text-align: center;
+          text-decoration: underline;
+          font-size: 4vh;
+        }
+
+        * > h3 {
+          font-size: 2.5vh;
+          text-align: center;
+        }
+
+        .general-guide {
+          @include grid_template(auto / 1fr);
+          gap: $mid-gap;
+
+          .description {
+            text-align: center;
+          }
+
+          .interface {
+            @include grid_template( auto / repeat(2, 1fr));
+            gap: $small-gap;
+            
+            h3 {
+              grid-column: 1 / 3;
+            }
+
+            p {
+              @include grid_template( 1fr / repeat(2, auto));
+              justify-content: left;
+              align-items: center;
+
+              img {
+                height: 4vh;
+              }
+            }
+          }
+
+          .key {
+            @include grid_template(auto / 1fr);
+            gap: $small-gap;
+
+            p > span { color: #0A0; }
+          }
+        }
+
+        .encryption-guide, .decryption-guide {
+          @include grid_template(auto / 1fr);
+          gap: $small-gap;
+
+          * > span {
+            color: #0A0;
+          }
+
+          h3 {
+            justify-self: start;
+          }
+
+          .wrong {
+            font-size: 2vh;
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .close-btn {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 5vh;
+
+        img {
+          height: 5vh;
+        }
       }
     }
   }
@@ -284,6 +378,8 @@ main {
         white-space: break-spaces;
         line-height: 125%;
         font-size: 2vh;
+        letter-spacing: 0.3vh;
+        word-spacing: 0.5vh;
       } 
 
       ::-webkit-scrollbar {
