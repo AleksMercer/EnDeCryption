@@ -6,6 +6,10 @@ html, body, #root {
 	height: 100%;
   width: 100%;
   overflow: hidden;
+
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 0.05vh;
+  word-spacing: 0.2vh;
 }
 
 body { //some common settings
@@ -16,6 +20,13 @@ body { //some common settings
   img.info-icon, img.swap-icon, img.key-icon, .info-btn, .swap-btn, .key-btn {//icons & buttons height
     height: 5vh;
     border-radius: 50%;
+  }
+
+  * > button {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+    font-size: 2vh;
+    letter-spacing: 0.05vh;
   }
 
   * > .generate, * > .save-close , * > .result {
@@ -181,7 +192,6 @@ header {
           height: 4.5vh;
           padding: 0.1vh 1vh 0 1vh;
   
-          font-size: 2vh;
           border-radius: 1vh;
           text-align: center;
           background-color: white;
@@ -192,6 +202,10 @@ header {
           text-overflow: ellipsis;
 
           align-self: center;
+
+          font-family: 'Rajdhani', sans-serif;
+          font-size: 2vh;
+          letter-spacing: 0.2vh;
         }
 
         .copy-icon, .copy-btn {
@@ -232,8 +246,6 @@ header {
 
         * > p {
           font-size: 2vh;
-          // letter-spacing: ;
-          // word-spacing: ;
         }
 
         * > h2 {
@@ -296,7 +308,7 @@ header {
 
           .wrong {
             font-size: 2vh;
-            text-decoration: underline;
+            border-bottom: 0.25vh solid #A00;
           }
         }
       }
@@ -376,10 +388,12 @@ main {
 
         word-break: break-word;
         white-space: break-spaces;
-        line-height: 125%;
+
+        font-family: 'Roboto Mono', monospace;
         font-size: 2vh;
-        letter-spacing: 0.3vh;
-        word-spacing: 0.5vh;
+        font-weight: 300;
+        letter-spacing: 0.15vh;
+        word-spacing: 0.2vh;
       } 
 
       ::-webkit-scrollbar {

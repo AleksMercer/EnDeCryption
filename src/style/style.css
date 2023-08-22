@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap");
-/* - Mixins start - */
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&family=Rajdhani:wght@500&family=Roboto+Mono:wght@300;400&display=swap");
 /* - Common settings - */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -117,6 +116,9 @@ html, body, #root {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  font-family: "Rajdhani", sans-serif;
+  letter-spacing: 0.05vh;
+  word-spacing: 0.2vh;
 }
 
 body * > img, body * > button, body h1, body h2, body h3 {
@@ -128,6 +130,12 @@ body * > img, body * > button, body h1, body h2, body h3 {
 body img.info-icon, body img.swap-icon, body img.key-icon, body .info-btn, body .swap-btn, body .key-btn {
   height: 5vh;
   border-radius: 50%;
+}
+body * > button {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+  font-size: 2vh;
+  letter-spacing: 0.05vh;
 }
 body * > .generate, body * > .save-close, body * > .result {
   justify-self: center;
@@ -306,7 +314,6 @@ header .info-and-key .key-window .container .green-span {
 header .info-and-key .key-window .container .key-input {
   height: 4.5vh;
   padding: 0.1vh 1vh 0 1vh;
-  font-size: 2vh;
   border-radius: 1vh;
   text-align: center;
   background-color: white;
@@ -316,6 +323,9 @@ header .info-and-key .key-window .container .key-input {
   text-overflow: ellipsis;
   -ms-flex-item-align: center;
       align-self: center;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2vh;
+  letter-spacing: 0.2vh;
 }
 header .info-and-key .key-window .container .copy-icon, header .info-and-key .key-window .container .copy-btn {
   height: 3.5vh;
@@ -406,7 +416,7 @@ header .info-and-key .info-window .info-container .encryption-guide h3, header .
 }
 header .info-and-key .info-window .info-container .encryption-guide .wrong, header .info-and-key .info-window .info-container .decryption-guide .wrong {
   font-size: 2vh;
-  text-decoration: underline;
+  border-bottom: 0.25vh solid #A00;
 }
 header .info-and-key .info-window .close-btn {
   position: absolute;
@@ -492,10 +502,11 @@ main .windows_left textarea, main .windows_right textarea {
   resize: none;
   word-break: break-word;
   white-space: break-spaces;
-  line-height: 125%;
+  font-family: "Roboto Mono", monospace;
   font-size: 2vh;
-  letter-spacing: 0.3vh;
-  word-spacing: 0.5vh;
+  font-weight: 300;
+  letter-spacing: 0.15vh;
+  word-spacing: 0.2vh;
 }
 main .windows_left ::-webkit-scrollbar, main .windows_right ::-webkit-scrollbar {
   width: 0.5vh;

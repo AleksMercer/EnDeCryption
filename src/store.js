@@ -32,17 +32,17 @@ export default configureStore({
 })
 
 
-/* selectMode - boolean value for mode choosing.  const modeState = useSelector(selectMode) */
+/* selectMode - boolean value for mode choosing.     const modeState = useSelector(selectMode) */
 const selectMode = (state) => state.store.mode
 /* selectCopyTip - boolean value for mode choosing.  const copyTipState = useSelector(selectCopyTip) */
 const selectCopyTip = (state) => state.store.copyTip
-/* selectKeyTip - boolean value for mode choosing.  const keyTipState = useSelector(selectKeyTip) */
+/* selectKeyTip - boolean value for mode choosing.   const keyTipState = useSelector(selectKeyTip) */
 const selectKeyTip = (state) => state.store.keyTip
-/* selectContent - content from leftWindow.       const contentState = useSelector(selectContent) */
+/* selectContent - content from leftWindow.          const contentState = useSelector(selectContent) */
 const selectContent = (state) => state.store.contentValue
-/* selectEncrypted - content from rightWindow.    const encryptedState = useSelector(selectEncrypted) */
+/* selectEncrypted - content from rightWindow.       const encryptedState = useSelector(selectEncrypted) */
 const selectEncrypted = (state) => state.store.encryptedContent
-/* selectKey - key from key-input.                const keyState = useSelector(selectKey) */
+/* selectKey - key from key-input.                   const keyState = useSelector(selectKey) */
 const selectKey = (state) => state.store.key
 
 

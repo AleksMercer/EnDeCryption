@@ -10,8 +10,6 @@ function ModeSwap() {
 
   const modeState = useSelector(selectMode)
 
-  //#region — change body classname for change theme
-
   const body = document.body.classList
 
   if (modeState) {
@@ -23,8 +21,6 @@ function ModeSwap() {
     body.add('decryption')
     document.title = 'DeCryption'
   }
-
-  //#endregion
 
   return (
     <button className='mode-swap'>
