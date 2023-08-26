@@ -19,6 +19,9 @@ function Result() {
   const decoder = new TextDecoder()
 
   const encryption = async () => {
+
+    if (!contentState) return
+
     try {
       const data = encoder.encode(contentState)
 
@@ -51,6 +54,9 @@ function Result() {
   }
 
   const decryption = async () => {
+
+    if (!encryptedState) return
+
     try {
       const data = new Uint8Array(encryptedState
         .match(/.{1,2}/g)
