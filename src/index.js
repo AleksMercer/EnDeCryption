@@ -14,7 +14,7 @@ root.render(
 
     <Provider store={store}>
 
-      <App /> {/* 'App' components*/}
+      <App /> {/* 'App' components */}
 
     </Provider>
 
