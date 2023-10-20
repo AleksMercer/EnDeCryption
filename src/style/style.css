@@ -421,7 +421,7 @@ header .info-and-key .info-window .info-container .encryption-guide .wrong, head
 header .info-and-key .info-window .close-btn {
   position: absolute;
   right: 0;
-  bottom: 0;
+  top: 0;
   height: 5vh;
 }
 header .info-and-key .info-window .close-btn img {
